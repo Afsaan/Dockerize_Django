@@ -1,0 +1,12 @@
+version: '3.9'  # docker compose version
+
+services:  # mention different services
+    web:  # service name
+      build: .   # build the dockerfile
+      container_name: web  # container name
+      command: >
+          bash -c "python manage.py runserver 0.0.0.0:8000"  
+      ports:
+          - 7088:8000 # host_port : docker_host
+      volumes:
+          - .:/code
